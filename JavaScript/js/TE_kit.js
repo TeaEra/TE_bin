@@ -67,20 +67,17 @@
     TEKit.initImgOnError = function () {
         var imgList = document.getElementsByTagName('img');
         for (var i=0, len=imgList.length; i<len; ++i) {
-            var elem = imgList[i],
-                errorSrc = elem.getAttribute('data-error-src');
-            if (errorSrc) {
-                elem.onerror = function () {
-                    this.src = 'errorSrc';
-                    this.onerror = null;
-                };
-            }
+            var elem = imgList[i];
+            elem.onerror = function () {
+                // Avoid closure;
+                this.src = elem.getAttribute('data-error-src');
+                this.onerror = null;
+            };
         }
     };
 
     TEKit.on = function (elem, event, callback) {
-        var funcName = null,
-        	elem;
+        var funcName = null;
         if (document.addEventListener) {
             funcName = 'addEventListener';
         }
@@ -91,6 +88,20 @@
         elem[funcName](event, callback);
     };
 
-
+    /**
+     * Require:
+     *  - TEKit.on;
+     */
+    TEKit.initImgOnError2 = function () {
+        var imgList = document.querySelectorAll('img[data-error-src]');
+        for (var i=0,len=imgList.length; i<len; ++i) {
+            var elem = imgList[i];
+            TEKit.on(elem, 'error', function () {
+                // Avoid closure;
+                this.src = this.getAttribute('data-error-src');
+                this.onerror = null;
+            });
+        }
+    };
 
 })();
