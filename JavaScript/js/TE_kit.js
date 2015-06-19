@@ -3,6 +3,12 @@
  */
 (function () {
   'use strict';
+  
+  /**
+   * Functions with this flag:
+   *  [Import-moment: before loading DOM]
+   *  are suggested to be loaded in header part;
+   */
 
   /* global TEKit */
   window.TEKit = window.TEKit || {};
@@ -89,6 +95,10 @@
     }
     elem[funcName](event, callback);
   };
+  
+  TEKit.off = function (elem, event) {
+    elem[event] = null;
+  };
 
   /**
    * Require:
@@ -123,13 +133,57 @@
   };
   
   TEKit.ajax = function (xhr, options) {
-//    var
-//      url = options.url,
-//      type = options.type,
-//      data = options.data,
-//      dataType = options.dataType,
-//      success = options.success,
-//      error = options.error;
+   // var
+    //  url = options.url,
+    //  type = options.type,
+    //  data = options.data,
+    //  dataType = options.dataType,
+    //  success = options.success,
+    //  error = options.error;
+  };
+  
+  /**
+   * [Import-moment: before loading DOM]
+   */
+  TEKit.imgLoad = function vrImgLoad(D, E, A, B) {
+    if (E == "auto") {
+        E = (D.width < A && D.height < B) ? "blank" : "fit";
+    }
+    if ((E == "fit" && D.height / D.width > B / A) || (E == "blank" && D.height / D.width < B / A)) {
+        D.style.width = A + "px";
+        D.style.marginTop = "0px";
+    } else {
+        D.style.height = B + "px";
+        if (D.offsetWidth) {
+            D.style.marginLeft = (A - D.offsetWidth) / 2 + "px";
+        } else {
+            var C = 0;
+            (function(G, H) {
+                function F(I) {
+                    if (I.offsetWidth) {
+                        I.style.marginLeft = (A - I.offsetWidth) / 2 + "px";
+                    } else {
+                        G++;
+                        if (G < 11) {
+                            setTimeout(function() {
+                                F(I)
+                            }, 10)
+                        }
+                    }
+                }
+                F(H);
+            })(C, D);
+        }
+    }
+    D.style.visibility = "visible";
+  };
+  
+  /**
+   * [Import-moment: before loading DOM]
+   */
+  TEKit.imgError = function (that) {
+    that.src = that.getAttribute('data-error-src');
+    that.onerror = null;
   };
   
   /****************************************************************************/
@@ -190,6 +244,21 @@
     battery.addEventListener("levelchange", function(e) {
         console.warn("电量水平变化: ", battery.level);
     }, false);
+  };
+  
+  /****************************************************************************/
+  /**
+   * The following functions all depend on JQuery!!!
+   */
+  
+  /* global $ */
+  
+  TEKit.inputFocusScroll = function (id) {
+    $(id).on('focus', function () {
+      $('html, body').animate({
+        scrollTop: $(this).offset().top - 20 >= 0 ? $(this).offset().top - 20 : 0
+      }, 300);
+    });
   };
 
 })();
