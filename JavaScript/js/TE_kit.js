@@ -13,6 +13,9 @@
   /* global TEKit */
   window.TEKit = window.TEKit || {};
   
+  /****************************************************************************/
+  /** Module: [DOM] */
+  
   // Content height;
   TEKit.getBodyScrollHeight = function () {
     return document.getElementsByTagName('body')[0].offsetHeight;
@@ -187,11 +190,153 @@
   };
   
   /****************************************************************************/
+  /** Module: [cookie] */
+  
+  TEKit.setCookie = function (name, value, days, path) {
+    //
+    var 
+      exp = new Date(),
+      val = null;
+    exp.setTime(exp.getTime() + 1000 * 60 * 60 * 24 * days);
+    val = name + '=' + encodeURIComponent(value) + ';expires=' + exp.toUTCString();
+    //
+    if (path) {
+      val += ';path=' + path;
+    }
+    // Finally: assign it to cookie;
+    document.cookie = val;
+  };
+
+  //为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
+  TEKit.delCookie = function (name, domain, path) {
+    var date = new Date();
+    date.setTime(date.getTime() - 10000);
+    //
+    var params = [name, "=nothing;expires=", date.toGMTString()]
+    if (domain) {
+      params.push(";domain=" + domain);
+    }
+    if (path) {
+      params.push(";path=" + path);
+    }
+    document.cookie = params.join("");
+  };
+
+  TEKit.getCookie = function (name) {
+    if (document.cookie.length > 0) {
+      var c_start = document.cookie.indexOf(name + "=");
+      if (c_start != -1) {
+        var 
+          c_start = c_start + name.length + 1,
+          c_end = document.cookie.indexOf(";", c_start);
+        if (c_end == -1)
+          c_end = document.cookie.length;
+        return decodeURIComponent(document.cookie.substring(c_start, c_end));
+      }
+      return '';
+    }
+    return '';
+  };
+
+  TEKit.createCustomizedEvent = function (eventName, element) {
+    var event; // The custom event that will be created
+
+    if (document.createEvent) {
+      event = document.createEvent("HTMLEvents");
+      event.initEvent(eventName, true, true);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+    }
+
+    event.eventName = eventName;
+
+    var elem = element || document.body;
+
+    if (document.createEvent) {
+      elem.dispatchEvent(event);
+    } else {
+      elem.fireEvent("on" + event.eventType, event);
+    }
+
+    return event;
+  };
+  
+  TEKit.removeClass = function (elem, targetClass) {
+    var
+      cn = elem.className,
+      cl = cn.split(' '),
+      tarIdx = cl.indexOf(targetClass);
+    if (tarIdx >= 0) {
+      cl.splice(tarIdx, 1);
+    }
+    elem.className = cl.join(' ');
+  };
+  
+  TEKit.addClass = function (elem, targetClass) {
+    var
+      cn = elem.className,
+      cl = cn.split(' '),
+      tarIdx = cl.indexOf(targetClass);
+    if (tarIdx < 0) {
+      cl.push(targetClass);
+    }
+    elem.className = cl.join(' ');
+  };
+  
+  TEKit.replaceClass = function (elem, targetClass, newClass) {
+    var
+      cn = elem.className,
+      cl = cn.split(' '),
+      tarIdx = cl.indexOf(targetClass);
+    if (tarIdx >= 0) {
+      cl.splice(tarIdx, 1, newClass);
+    }
+    elem.className = cl.join(' ');
+  };
+  
+  TEKit.parseParams = function (search) {
+    if (!search) {
+      return {};
+    }
+    var
+      paramObj = {},
+      paramList = search.split('&');
+    for (var i=0, size=paramList.length; i<size; ++i) {
+      var
+        param = paramList[i],
+        sep = '=',
+        sepIdx = param.indexOf(sep);
+      if (sepIdx >= 0) {
+        var
+          tempList = param.split(sep),
+          key = tempList[0],
+          value = decodeURIComponent(tempList[1]);
+        paramObj[key] = value;
+      }
+    }
+    return paramObj;
+  };
+  
+  /****************************************************************************/
+  /** Module: [math] */
+  
+  /**
+   * 
+   */
+  TEKit.getRandomInteger = function (start, end) {
+    return Math.floor(Math.random() * (end - start + 1) + start);
+  };
+  
+  /****************************************************************************/
+  /** Module: 奇技淫巧篇 */
+  /** Module: [diabolic tricks and wicked craft] */
   
   /**
    * [Link](https://gist.github.com/padolsey/527683)
    */
   TEKit.get_IE_version = function () {
+    /* jshint ignore:start */
     // for-loop saves characters over while
     for (
       var v = 3,
@@ -204,12 +349,11 @@
       el.innerHTML = '<!--[if gt IE ' + (++v) + ']><i><![endif]-->',
       all[0];
     );
+    /* jshint ignore:end */
     // instead of undefined, returns the documentMode for IE10+ compatibility
     // non-IE will still get undefined as before
     return v > 4 ? v : document.documentMode;
   };
-  
-  /****************************************************************************/
   
   /**
    * [Link](http://bbs.html5cn.org/thread-80269-1-1.html)
@@ -247,6 +391,7 @@
   };
   
   /****************************************************************************/
+  /** Module: [$] */
   /**
    * The following functions all depend on JQuery!!!
    */
