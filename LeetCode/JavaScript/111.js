@@ -20,16 +20,8 @@ var minDepth = function(root) {
 	if (!root) {
 		return 0;
 	}
-	if (!root.left && !root.right) {
-		return 1;
+	if (!root.left || !root.right) {
+		return 1 + Math.max(minDepth(root.left), minDepth(root.right));
 	}
-	var
-		left = root.left,
-		right = root.rigth,
-		isLeftLeaf = left && !left.left && !left.right,
-		isRightLeaf = right && !right.left && right.right;
-	if (isLeftLeaf || isRightLeaf) {
-		return 2;
-	}
-	return 2 + Math.min(minDepth(left), minDepth(right));
+	return 1 + Math.min(minDepth(root.left), minDepth(root.right));
 };
