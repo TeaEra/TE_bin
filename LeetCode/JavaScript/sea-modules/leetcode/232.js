@@ -1,52 +1,55 @@
-/**
- * Implement Queue using Stacks
- */
+define(function (require, exports, module) {
 
-'use strict';
+	/**
+	 * Implement Queue using Stacks
+	 */
 
-/**
- * @constructor
- */
-var Queue = function() {
-    var 
-		arr = [],
-		size = arr.length;
-};
+	'use strict';
 
-/**
- * @param {number} x
- * @returns {void}
- */
-Queue.prototype.push = function(x) {
-    this.arr.push(x);
-};
+	/**
+	 * @constructor
+	 */
+	var Queue = function() {
+	    this.arr = [];
+	};
 
-/**
- * @returns {void}
- */
-Queue.prototype.pop = function() {
-    if (this.size === 0) {
-		// Pass;
-	}
-	this.arr.shift();
-};
+	/**
+	 * @param {number} x
+	 * @returns {void}
+	 */
+	Queue.prototype.push = function(x) {
+	    this.arr.push(x);
+	};
 
-/**
- * @returns {number}
- */
-Queue.prototype.peek = function() {
-    if (this.size === 0) {
-		return null;
-	}
-	return this.arr[0];
-};
+	/**
+	 * @returns {void}
+	 */
+	Queue.prototype.pop = function() {
+	    if (this.arr.length === 0) {
+			// Pass;
+			return;
+		}
+		this.arr.shift();
+	};
 
-/**
- * @returns {boolean}
- */
-Queue.prototype.empty = function() {
-    if (this.size === 0) {
-		return true;
-	}
-	return false;
-};
+	/**
+	 * @returns {number}
+	 */
+	Queue.prototype.peek = function() {
+	    if (this.arr.length === 0) {
+			return null;
+		}
+		return this.arr[0];
+	};
+
+	/**
+	 * @returns {boolean}
+	 */
+	Queue.prototype.empty = function() {
+	    if (this.arr.length === 0) {
+			return true;
+		}
+		return false;
+	};
+
+});

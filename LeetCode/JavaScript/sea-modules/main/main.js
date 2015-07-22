@@ -4,7 +4,11 @@ define(function (require, exports, module) {
 	var DS = require('leetcode/DS');
 	//
 	// var M94 = require('leetcode/94');
-	var M153 = require('leetcode/153');
+	// var M112 = require('leetcode/112');
+	// var M119 = require('leetcode/119');
+	// var M146 = require('leetcode/146');
+	// var M153 = require('leetcode/153');
+	var M165 = require('leetcode/165');
 	// var M168 = require('leetcode/168');
 	// var M169 = require('leetcode/169');
 	// var M171 = require('leetcode/171');
@@ -19,7 +23,23 @@ define(function (require, exports, module) {
 	/*var root = new DS.TreeNode(1);
 	console.log(M94(root));*/
 
-	console.log(M153([1,2,3]));
+	/*var lru = new M146(3);
+	lru.set(1,1);
+	lru.set(2,2);
+	lru.set(3,3);
+	lru.set(4,4);
+	lru.get(4);
+	lru.get(3);
+	lru.get(2);
+	lru.get(1);
+	lru.set(5,5);*/
+
+	/*console.log(M119(3));*/
+
+	/*console.log(M153([1,2,3]));*/
+
+	console.log(M165('1.1', '1.2'));
+	console.log(M165('11.1', '1.2'));
 
 	/*console.log(M168(26));
 	console.log(M168(27));
