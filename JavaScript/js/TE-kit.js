@@ -14,6 +14,17 @@
   window.TEKit = window.TEKit || {};
   
   /****************************************************************************/
+  /** Module: [pre] */
+  
+  /**
+   * [Import-moment: before loading DOM]
+   */
+  TEKit.imgError = function (that) {
+    that.src = that.getAttribute('data-error-src');
+    that.onerror = null;
+  };
+  
+  /****************************************************************************/
   /** Module: [DOM] */
   
   // Content height;
@@ -179,14 +190,6 @@
         }
     }
     D.style.visibility = "visible";
-  };
-  
-  /**
-   * [Import-moment: before loading DOM]
-   */
-  TEKit.imgError = function (that) {
-    that.src = that.getAttribute('data-error-src');
-    that.onerror = null;
   };
   
   /****************************************************************************/
