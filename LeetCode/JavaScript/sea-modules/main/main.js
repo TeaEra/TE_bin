@@ -22,11 +22,12 @@ define(function (require, exports, module) {
 	// var M198 = require('leetcode/198');
     // var M205 = require('leetcode/205');
     // var M213 = require('leetcode/213');
+    var M224 = require('leetcode/224');
 	// var M229 = require('leetcode/229');
 	// var M238 = require('leetcode/238');
-	var M240 = require('leetcode/240');
+	// var M240 = require('leetcode/240');
 
-    // Test.helloWorld();
+    Test.helloWorld();
 
     var head = new DS.ListNode(1);
     console.log(head);
@@ -101,6 +102,8 @@ define(function (require, exports, module) {
 
 	/*console.log(M198([2,1,1,2]));
 	console.log(M198([155,44,52,58,250,225,109,118,211,73,137,96,137,89,174,66,134,26,25,205,239,85,146,73,55,6,122,196,128,50,61,230,94,208,46,243,105,81,157,89,205,78,249,203,238,239,217,212,241,242,157,79,133,66,36,165]));*/
+    
+    console.log(M224('(1+(4+5+2)-3)+(6+8)'));
 
 	/*console.log(M229([1]));*/
 
@@ -117,6 +120,6 @@ define(function (require, exports, module) {
 	// console.log(M240([[1,4],[2,5]], 5));
 	// console.log(M240([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]], 19));
 	// console.log(M240([[-5]], -10));
-	console.log(M240([[1,3,5,7,9],[2,4,6,8,10],[11,13,15,17,19],[12,14,16,18,20],[21,22,23,24,25]], 13));
+	// console.log(M240([[1,3,5,7,9],[2,4,6,8,10],[11,13,15,17,19],[12,14,16,18,20],[21,22,23,24,25]], 13));
 
 });
