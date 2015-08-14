@@ -1,0 +1,52 @@
+<style>
+.circle {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	border-radius: 50px;
+}
+</style>
+
+<div id="css-circle" class="circle">
+</div>
+
+<div id="circle">
+</div>
+<script>
+'use strict';
+var
+	id = 'circle',
+	diameter = 33,
+	radius = Math.floor(diameter / 2),
+	dotArr = [];
+for (var i=0; i<=radius; ++i) {
+	var
+		offset = Math.floor(Math.sqrt(Math.pow(radius, 2) - Math.pow(radius - i, 2))),
+		pointArr = [];
+	if (offset !== 0) {
+		pointArr.push(radius - offset);
+		pointArr.push(radius + offset);
+	}
+	else {
+		pointArr.push(radius - offset);
+	}
+	var tmpArr = [];
+	for (var j=0; j<diameter; ++j) {
+		if (pointArr.indexOf(j) < 0) {
+			tmpArr.push('&nbsp;');
+		}
+		else {
+			tmpArr.push('.');
+		}
+	}
+	dotArr.push(tmpArr);
+}
+for (var i=radius-1; i>=0; --i) {
+	dotArr.push(dotArr[i]);
+}
+var html = '';
+for (var i=0, size=dotArr.length; i<size; ++i) {
+	html += dotArr[i].join('') + '<br>';
+}
+document.getElementById('circle').innerHTML = html;
+</script>

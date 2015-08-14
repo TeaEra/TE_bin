@@ -131,31 +131,6 @@
     }
   };
   
-  TEKit.initXHR = function () {
-    var xhr;
-    if (window.XMLHttpRequest) {
-      xhr = new XMLHttpRequest();
-    }
-    else if(window.ActionXObject) {
-      xhr = new ActiveXObject("Msxml2.XMLHTTP")
-        | new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    else {
-      throw new Error("xhr is not supported");
-    }
-    return xhr;
-  };
-  
-  TEKit.ajax = function (xhr, options) {
-   // var
-    //  url = options.url,
-    //  type = options.type,
-    //  data = options.data,
-    //  dataType = options.dataType,
-    //  success = options.success,
-    //  error = options.error;
-  };
-  
   /**
    * [Import-moment: before loading DOM]
    */
@@ -190,6 +165,47 @@
         }
     }
     D.style.visibility = "visible";
+  };
+  
+  /****************************************************************************/
+  /** Module: [ajax] */
+  
+  TEKit.initXHR = function () {
+    var xhr;
+    if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest();
+    }
+    else if(window.ActionXObject) {
+      xhr = new ActiveXObject("Msxml2.XMLHTTP")
+        | new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else {
+      throw new Error("xhr is not supported");
+    }
+    return xhr;
+  };
+  
+  TEKit.ajax = function(xhr, options) {
+    var
+      url = options.url,
+      type = options.type,
+      isAsync = options.isAsync,
+      data = options.data,
+      successHandler = options.success,
+      errorHandler = options.error;
+    xhr.open(type, url, isAsync);
+    xhr.send(data);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        if (successHandler) {
+          successHandler(xhr.responseText);
+        }
+      } else {
+        if (errorHandler) {
+          errorHandler();
+        }
+      }
+    };
   };
   
   /****************************************************************************/

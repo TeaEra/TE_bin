@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+
+__author__ = 'TeaEra'
+
+'''
+http://www.pythonchallenge.com/pc/return/good.html
+'''
+
