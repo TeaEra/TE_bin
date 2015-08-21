@@ -1,0 +1,15 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "result": {
+    "caption": "统计组",
+    "list": [
+      {
+        "name": "搜狗App统计系统",
+        "author": "王晓鹏，刘攀",
+        "link": "http://shark.appsearch.m.sogou-inc.com/survey",
+        "description": "DAU区分主动、被动；DAU构成（用户行为分析->DAU构成）；高级筛选区可复选搜索入口行为分析（用户行为分析->搜索入口行为分析）；用户抽样（自助分析->用户抽样）；异常数据报警一期统计系统数据回溯至2014.08.01；"
+      }
+    ]
+  }
+}

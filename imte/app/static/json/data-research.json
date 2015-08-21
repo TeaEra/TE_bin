@@ -1,0 +1,51 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "result": {
+    "caption": "研究组",
+    "list": [
+      {
+        "name": "非常牛逼的检索beta3.0",
+        "author": "邓海龙",
+        "link": "http://10.134.72.227:10170/index.php?query=%B1%A6%C2%ED",
+        "description": "beta3.0；"
+      },
+      {
+        "name": "非常牛逼的检索beta4.0",
+        "author": "邓海龙",
+        "link": "http://10.134.72.227:10170/search/niubi/index.php?desc=%C0%ED%B2%C6",
+        "description": ""
+      },
+      {
+        "name": "微信头条审核平台文章置顶",
+        "author": "邓海龙",
+        "link": "http://10.134.49.133:8080/top_article/top_article.php",
+        "description": "文章置顶；"
+      },
+      {
+        "name": "文章信息查看平台",
+        "author": "邓海龙",
+        "link": "http://10.134.72.227:10170/push_plateform.html",
+        "description": ""
+      },
+      {
+        "name": "获取push资源",
+        "author": "王向鸣",
+        "link": "http://10.134.37.33:8090/get_push_resource.html",
+        "description": ""
+      },
+      {
+        "name": "获取push资源",
+        "author": "王向鸣",
+        "link": "http://10.134.37.33:8090/get_local_resource.html",
+        "description": ""
+      },
+      {
+        "name": "删除?",
+        "author": "未知",
+        "link": "http://10.13.194.199/article/delete.php",
+        "description": ""
+      }
+    ]
+  }
+}

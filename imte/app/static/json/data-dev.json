@@ -1,0 +1,33 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "result": {
+    "caption": "开发组",
+    "list": [
+      {
+        "name": "微信头条审核平台",
+        "author": "陈政通",
+        "link": "http://10.134.38.133/wx-admin/admin.html",
+        "description": "旧版审核平台；请使用公司账号登录；"
+      },
+      {
+        "name": "微信头条运营平台",
+        "author": "李亚东",
+        "link": "http://10.134.38.133/wx/index.php?go=verify",
+        "description": "请使用公司账号系统登录；"
+      },
+      {
+        "name": "查询doc_server",
+        "author": "陈政通",
+        "link": "http://10.134.50.225/wxpage/test/html/test_doc.html",
+        "description": "输入11位中间页短链接或者微信原链接查询doc_server；"
+      },
+      {
+        "name": "生成转码页链接",
+        "author": "陈政通",
+        "link": "http://10.134.50.225/wxpage/test/html/to_tc.html",
+        "description": "输入11位中间页短链接或者微信原链接生成转码页链接；"
+      }
+    ]
+  }
+}

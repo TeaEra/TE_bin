@@ -1,0 +1,27 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "result": {
+    "caption": "公司etc",
+    "list": [
+      {
+        "name": "Push推送控制台",
+        "author": "Sogou",
+        "link": "http://developer.push.upd.sogou-inc.com/developer/data/real-time?type=msg_data",
+        "description": ""
+      },
+      {
+        "name": "Bug管理系统-Cynthia",
+        "author": "Sogou",
+        "link": "http://cynthia.sogou-inc.com/index.html",
+        "description": ""
+      },
+      {
+        "name": "搜狐畅言-评论管理系统",
+        "author": "Sohu",
+        "link": "http://changyan.kuaizhan.com/",
+        "description": "微信头条评论功能管理；"
+      }
+    ]
+  }
+}

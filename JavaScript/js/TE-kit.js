@@ -174,36 +174,38 @@
     var xhr;
     if (window.XMLHttpRequest) {
       xhr = new XMLHttpRequest();
-    }
-    else if(window.ActionXObject) {
-      xhr = new ActiveXObject("Msxml2.XMLHTTP")
-        | new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    else {
+    } else if (window.ActionXObject) {
+      xhr = new ActiveXObject("Msxml2.XMLHTTP") | new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
       throw new Error("xhr is not supported");
     }
     return xhr;
   };
-  
-  TEKit.ajax = function(xhr, options) {
+
+  TEKit.ajax = function (xhr, options) {
     var
       url = options.url,
-      type = options.type,
-      isAsync = options.isAsync,
-      data = options.data,
-      successHandler = options.success,
-      errorHandler = options.error;
+      type = options.type || 'get',
+      isAsync = options.isAsync || true,
+      data = options.data || '',
+      successHandler = options.success || function () {},
+      errorHandler = options.error || function () {};
     xhr.open(type, url, isAsync);
     xhr.send(data);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        if (successHandler) {
-          successHandler(xhr.responseText);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          if (successHandler) {
+            successHandler(xhr.responseText);
+          }
+        }
+        else {
+          if (errorHandler) {
+            errorHandler();
+          }
         }
       } else {
-        if (errorHandler) {
-          errorHandler();
-        }
+        //
       }
     };
   };
