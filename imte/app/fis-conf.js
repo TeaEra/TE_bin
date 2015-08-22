@@ -21,8 +21,8 @@ else {
 // fis.config.set('settings.optimizer.uglify-js', option);
 
 var
-  domain = 'http://10.134.50.225/teaera',  // TODO: step 1;
-  debugDomain = 'http://10.134.50.225/teaera';  // TODO: step 2;
+  domain = 'http://teaera.club/teaera',  // TODO: step 1;
+  debugDomain = 'http://teaera.club/teaera';  // TODO: step 2;
 
 /**
  * fis-optimizer-uglify-js
@@ -31,8 +31,8 @@ var
 
 fis.media('qa').match('*', {
   deploy: fis.plugin('http-push', {
-    receiver: 'http://10.134.50.225/te/receiver.php',
-    to: '/search/nginx/html/teaera'  // TODO: step 3;
+    receiver: 'http://128.199.224.14/te/receiver.php',
+    to: '/teaera/nginx/html/teaera'  // TODO: step 3;
   })
 });
 /****** Customized area END ******/

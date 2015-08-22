@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 	var config = {
 		app: 'app',
     dist: 'dist',
-		releasePath: 'D:/WS_Sogou/searchapp/web_release/teaera/trunk'
+		releasePath: 'dist'
 	};
 
   /**
