@@ -1,11 +1,12 @@
 /**
- * Created by teaera on 2015-08-19;
+ * Created by teaera on 2015-08-23;
  */
 
 /* Import */
 var
-  modNavBar = require('static/module/component/nav-bar'),
-  modNavTable = require('static/module/component/nav-table');
+  modTENavbar = require('static/module/component/te-navbar'),
+  modTETimeline = require('static/module/component/te-timeline'),
+  modTETable = require('static/module/component/te-table');
 
 /* Export */
 
@@ -15,37 +16,54 @@ var
   idResearch = 'content2',
   idStat = 'content3',
   idOther = 'content4',
-  idTeNavBar = 'te-nav-bar';
-/**/
-var
-  srcDev = '/teaera/static/json/data-dev.json',
-  srcResearch = '/teaera/static/json/data-research.json',
-  srcStat = '/teaera/static/json/data-stat.json',
-  srcOther = '/teaera/static/json/data-other.json';
+  idTeNavbar = 'te-navbar',
+  idTEContent = 'te-content';
 
 console.log('> index-main: init');
-modNavTable.init(srcDev, idDev);
-modNavTable.init(srcResearch, idResearch);
-modNavTable.init(srcStat, idStat);
-modNavTable.init(srcOther, idOther);
 
-modNavBar.init(idTeNavBar, {
+modTENavbar.init(idTeNavbar, {
+  brandTitle: 'TeaEra',
   liList: [
     {
-      id: 'row-' + idDev,
-      txt: '开发组'
+      id: idDev,
+      txt: '留1'
     },
     {
-      id: 'row-' + idResearch,
-      txt: '研究组'
+      id: idResearch,
+      txt: '留2'
     },
     {
-      id: 'row-' + idStat,
-      txt: '统计组'
+      id: idStat,
+      txt: '留3'
     },
     {
-      id: 'row-' + idOther,
-      txt: '公司etc'
+      id: idOther,
+      txt: '留4'
     }
+  ]
+});
+
+modTETimeline.init(idTEContent, {
+  list: [
+    {
+      title: 'Tianjin University',
+      date: '2010.7',
+      desc: 'Graduate from Tianjin University.;'
+    },
+    {
+      title: 'Tianjin University',
+      date: '2006.9',
+      desc: 'Term begins;'
+    }
+  ]
+});
+
+modTETable.init(idTEContent, {
+  list: [
+    {
+      name: 'Black&White index',
+      link: 'http://teater.sinaapp.com/CZT_Index/libs/TE/test/pages/test_index_b&w.html',
+      desc: '黑白'
+    },
   ]
 });

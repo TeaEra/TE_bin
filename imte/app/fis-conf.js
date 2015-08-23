@@ -22,7 +22,7 @@ else {
 
 var
   domain = 'http://teaera.club/teaera',  // TODO: step 1;
-  debugDomain = 'http://teaera.club/teaera';  // TODO: step 2;
+  debugDomain = 'http://127.0.0.1/teaera';  // TODO: step 2;
 
 /**
  * fis-optimizer-uglify-js

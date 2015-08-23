@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 	var config = {
 		app: 'app',
     dist: 'dist',
-		releasePath: 'dist'
+		releasePath: 'D:/WS_TE/TE_bin/imte/dist'
 	};
 
   /**
