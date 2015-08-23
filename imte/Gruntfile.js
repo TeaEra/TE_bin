@@ -22,8 +22,11 @@ module.exports = function (grunt) {
   if (os === 'mac') {
     config.releasePath = '/Users/TeaEra/Documents/TE-WS/TE_bin/imte/dist';
   }
-  else if (os === 'win') {
+  else if (os === 'work-win') {
     // Pass;
+  }
+  else if (os === 'home-win') {
+    config.releasePath = 'C:/TeaEra/WS_TE/TE_bin/imte/dist';
   }
 
   /**
