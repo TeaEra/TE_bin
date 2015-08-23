@@ -12,3 +12,4 @@ config.releasePath
 
 ### COMMENTS
 - jsx --watch --extension jsx static/module/jsx static/module/component
+- Should check os;

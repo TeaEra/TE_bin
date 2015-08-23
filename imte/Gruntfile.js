@@ -13,7 +13,18 @@ module.exports = function (grunt) {
 		app: 'app',
     dist: 'dist',
 		releasePath: 'D:/WS_TE/TE_bin/imte/dist'
+    // '/Users/TeaEra/Documents/TE-WS/TE_bin/imte/dist'
 	};
+
+  // TODO: !!!
+  var confJson = require('./imte.conf.json');
+  var os = confJson.os;
+  if (os === 'mac') {
+    config.releasePath = '/Users/TeaEra/Documents/TE-WS/TE_bin/imte/dist';
+  }
+  else if (os === 'win') {
+    // Pass;
+  }
 
   /**
    * Release command for this project:
