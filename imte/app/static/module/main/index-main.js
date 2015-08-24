@@ -14,58 +14,62 @@ var
 
 /* Export */
 
-/**/
+/* All ids */
 var
   idDev = 'content1',
   idResearch = 'content2',
   idStat = 'content3',
   idOther = 'content4',
   //
-  idTeNavbar = 'te-navbar',
+  idTENavbar = 'te-navbar',
   idTEContent = 'te-content',
   idTEFooter = 'te-footer',
   //
   idTECanvas = 'te-canvas';
-/**/
+/* All data files */
 var
-  jsonIndexNavbar = '/teaera/static/json/te-data-index-navbar.json';
+  jsonIndexNavbar = '/teaera/static/json/te-data-index-navbar.json',
+  jsonTimeline = '/teaera/static/json/te-data-timeline.json';
+
+var
+  initTimeline = function () {
+    modTETimeline.init(idTEContent, {
+      source: jsonTimeline
+    });
+  };
 
 console.log('> index-main: init');
 
-modTENavbar.init(idTeNavbar, {
+modTENavbar.init(idTENavbar, {
   source: jsonIndexNavbar,
   callbackMapper: {
     index: function () {
-      console.log(1);
+      //
+      document.getElementById(idTEContent).style.display = 'none';
+      document.getElementById(idTECanvas).style.display = 'block';
     },
     timeline: function () {
-      console.log(2);
+      initTimeline();
+      //
+      document.getElementById(idTEContent).style.display = 'block';
+      document.getElementById(idTECanvas).style.display = 'none';
     },
     project: function () {
-      console.log(3);
+      //
+      document.getElementById(idTEContent).style.display = 'block';
+      document.getElementById(idTECanvas).style.display = 'none';
     },
     leisure: function () {
-      console.log(4);
+      //
+      document.getElementById(idTEContent).style.display = 'block';
+      document.getElementById(idTECanvas).style.display = 'none';
     }
   }
 });
 
-modTETimeline.init(idTEContent, {
-  list: [
-    {
-      title: 'Tianjin University',
-      date: '2010.7',
-      desc: 'Graduate from Tianjin University;'
-    },
-    {
-      title: 'Tianjin University',
-      date: '2006.9',
-      desc: 'Term begins;'
-    }
-  ]
-});
+modTEFooter.init(idTEFooter, {});
 
-modTETable.init(idTEContent, {
+/*modTETable.init(idTEContent, {
   list: [
     {
       name: 'Black&White index',
@@ -74,10 +78,5 @@ modTETable.init(idTEContent, {
     },
   ]
 });
-
-modTEFooter.init(idTEFooter, {});
-
 modTEVelocityDemo.init(idTEContent, {});
-
-/**/
-modTECanvas.init(idTECanvas, {});
+modTECanvas.init(idTECanvas, {});*/
