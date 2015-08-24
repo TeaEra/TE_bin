@@ -3,7 +3,7 @@
  *
  * navbar
  */
- 
+
 /* jshint ignore:start */
 
 /* Import */
@@ -15,11 +15,31 @@ module.exports = modTENavbar;
 var TENavBar = React.createClass({
   getInitialState: function () {
     return {
-      info: this.props.info,
+      callbackMapper: this.props.info.callbackMapper,
       currLiIdx: 0
     }
   },
-  liClick: function (idx) {
+  componentDidMount: function () {
+    var
+      source = this.props.info.source;
+    $.get(source, function (result) {
+      var
+        status = result.status;
+      if (status === 0) {
+        var
+          brandTitle = result.result.brandTitle,
+          list = result.result.list;
+          this.setState({
+            brandTitle: brandTitle,
+            list: list
+          });
+      }
+      else {
+        console.log('error');
+      }
+    }.bind(this), 'json');
+  },
+  liClick: function (idx, id) {
     var
       liList = document.querySelectorAll('li[data-li-idx]');
     for (var i=0, size=liList.length; i<size; ++i) {
@@ -37,13 +57,20 @@ var TENavBar = React.createClass({
       document.querySelector('button[data-target="#navbar"]').click();
     }
     //
-    window.scrollTo(0, document.getElementById(scrollTarId).offsetTop - 60);
+    /*var
+      elemTar = document.getElementById(scrollTarId);
+    elemTar && ( window.scrollTo(0, elemTar.offsetTop - 60) );*/
+    //
+    var
+      callback = this.state.callbackMapper[id];
+    callback && (callback());
   },
   render: function () {
     var
       that = this;
     var
-      brandTitle = that.props.info.brandTitle || 'TeaEra';
+      brandTitle = that.state.brandTitle || 'TeaEra',
+      list = that.state.list || [];
     return (
       <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
@@ -59,12 +86,12 @@ var TENavBar = React.createClass({
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right">
             {
-              this.state.info.liList.map(function (each, idx) {
+              list.map(function (each, idx) {
                 var
                   id = each.id,
                   txt = each.txt;
                 var
-                  liClick = that.liClick.bind(that, idx);
+                  liClick = that.liClick.bind(that, idx, id);
                 if (idx === that.state.currLiIdx) {
                   return (
                     <li className="active" data-li-idx={idx} onClick={liClick} data-scroll-to={id}><a>{txt}</a></li>
@@ -72,7 +99,7 @@ var TENavBar = React.createClass({
                 }
                 else {
                   return (
-                    <li data-li-idx={idx} onClick={liClick} data-scroll-to={id}><a onClick={liClick}>{txt}</a></li>
+                    <li data-li-idx={idx} onClick={liClick} data-scroll-to={id}><a>{txt}</a></li>
                   );
                 }
               })

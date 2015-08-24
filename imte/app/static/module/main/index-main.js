@@ -4,9 +4,13 @@
 
 /* Import */
 var
-  modTENavbar = require('static/module/component/te-navbar'),
-  modTETimeline = require('static/module/component/te-timeline'),
-  modTETable = require('static/module/component/te-table');
+  modTENavbar = require('static/module/component/te_navbar'),
+  modTETimeline = require('static/module/component/te_timeline'),
+  modTETable = require('static/module/component/te_table'),
+  modTEFooter = require('static/module/component/te_footer'),
+  modTEVelocityDemo = require('static/module/component/te_velocity_demo'),
+  //
+  modTECanvas = require('static/module/te/te_canvas');
 
 /* Export */
 
@@ -16,31 +20,34 @@ var
   idResearch = 'content2',
   idStat = 'content3',
   idOther = 'content4',
+  //
   idTeNavbar = 'te-navbar',
-  idTEContent = 'te-content';
+  idTEContent = 'te-content',
+  idTEFooter = 'te-footer',
+  //
+  idTECanvas = 'te-canvas';
+/**/
+var
+  jsonIndexNavbar = '/teaera/static/json/te-data-index-navbar.json';
 
 console.log('> index-main: init');
 
 modTENavbar.init(idTeNavbar, {
-  brandTitle: 'TeaEra',
-  liList: [
-    {
-      id: idDev,
-      txt: '留1'
+  source: jsonIndexNavbar,
+  callbackMapper: {
+    index: function () {
+      console.log(1);
     },
-    {
-      id: idResearch,
-      txt: '留2'
+    timeline: function () {
+      console.log(2);
     },
-    {
-      id: idStat,
-      txt: '留3'
+    project: function () {
+      console.log(3);
     },
-    {
-      id: idOther,
-      txt: '留4'
+    leisure: function () {
+      console.log(4);
     }
-  ]
+  }
 });
 
 modTETimeline.init(idTEContent, {
@@ -48,7 +55,7 @@ modTETimeline.init(idTEContent, {
     {
       title: 'Tianjin University',
       date: '2010.7',
-      desc: 'Graduate from Tianjin University.;'
+      desc: 'Graduate from Tianjin University;'
     },
     {
       title: 'Tianjin University',
@@ -67,3 +74,10 @@ modTETable.init(idTEContent, {
     },
   ]
 });
+
+modTEFooter.init(idTEFooter, {});
+
+modTEVelocityDemo.init(idTEContent, {});
+
+/**/
+modTECanvas.init(idTECanvas, {});

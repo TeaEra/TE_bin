@@ -1,0 +1,92 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "result": {
+    "list": [
+      {
+        "title": "Sogou",
+        "date": "present",
+        "desc": [
+          "Front-end engineer; PHPer;"
+        ]
+      },
+      {
+        "title": "Sogou",
+        "date": "2014-10",
+        "desc": [
+          "Front-end engineer;"
+        ]
+      },
+      {
+        "title": "ecVision",
+        "date": "2014-06",
+        "desc": [
+          "Expiration of contract;"
+        ]
+      },
+      {
+        "title": "ecVision",
+        "date": "2013-11",
+        "desc": [
+          "Contract starting date;"
+        ]
+      },
+      {
+        "title": "Lab OpenCog",
+        "date": "2013-09",
+        "desc": [
+          "Resign from Project DeSTIN;"
+        ]
+      },
+      {
+        "title": "Lab OpenCog",
+        "date": "2013-03",
+        "desc": [
+          "Start improving Project DeSTIN;"
+        ]
+      },
+      {
+        "title": "Biomind LLC",
+        "date": "2013-03",
+        "desc": [
+          "Job relocation from OpenBiomind to DeSTIN;"
+        ]
+      },
+      {
+        "title": "Biomind LLC",
+        "date": "2012-03",
+        "desc": [
+          "Start working on bioinformatics;"
+        ]
+      },
+      {
+        "title": "Hong Kong Polytechnic University",
+        "date": "2012.01",
+        "desc": [
+          "Graduate from HKPU;"
+        ]
+      },
+      {
+        "title": "Hong Kong Polytechnic University",
+        "date": "2010.09",
+        "desc": [
+          "Term begins;"
+        ]
+      },
+      {
+        "title": "Tianjin University",
+        "date": "2010-07",
+        "desc": [
+          "Graduate from Tianjin University;"
+        ]
+      },
+      {
+        "title": "Tianjin University",
+        "date": "2006-09",
+        "desc": [
+          "Term begins;"
+        ]
+      }
+    ]
+  }
+}

@@ -61,6 +61,14 @@ if (isModule) {
     isMod: true  // Marked as module
   });
 
+  fis.match('static/module/te/*.js', {
+    isMod: true  // Marked as module
+  });
+
+  /*fis.match('static/module/vendor/*.js', {
+    isMod: true  // Marked as module
+  });*/
+
   /**
    * fis3-postpackager-loader
    */

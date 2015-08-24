@@ -1,0 +1,25 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "result": {
+    "brandTitle": "TeaEra",
+    "list": [
+      {
+        "id": "index",
+        "txt": "首页"
+      },
+      {
+        "id": "timeline",
+        "txt": "时间线"
+      },
+      {
+        "id": "project",
+        "txt": "项目"
+      },
+      {
+        "id": "leisure",
+        "txt": "娱乐"
+      }
+    ]
+  }
+}

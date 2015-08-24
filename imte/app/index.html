@@ -2,46 +2,49 @@
 <html lang="zh-cmn-Hans">
 
 <head>
-	<meta charset="utf-8">
-	<!-- Apply 360 with Chrome-WebKit-Core -->
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<!-- Disable Baidu-Transcoding -->
-	<meta http-equiv="Cache-Control" content="no-siteapp">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<meta name="author" content="TeaEra,teaera@163.com">
-
-	<title>TeaEra</title>
-
-	<!-- -->
-	<link rel="stylesheet" href="static/css/normalize.css">
-	<link rel="stylesheet" href="static/css/bootstrap.css">
-	<link rel="stylesheet" href="static/css/bootstrap-theme.css">
-	<link rel="stylesheet" href="static/css/te.css">
-	<link rel="stylesheet" href="static/css/timeline.css">
-	<!-- -->
-	<script src="static/lib/mod.js"></script>
+  <meta charset="utf-8">
+  <!-- Apply 360 with Chrome-WebKit-Core -->
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- Disable Baidu-Transcoding -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="TeaEra,teaera@163.com">
+  <title>TeaEra</title>
+  <!-- -->
+  <link rel="stylesheet" href="static/css/normalize.css">
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="static/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="static/css/te.css">
+  <link rel="stylesheet" href="static/css/timeline.css">
+  <link rel="stylesheet" href="static/css/font-awesome.css">
+  <!-- -->
+  <script src="static/lib/mod.js"></script>
 </head>
 
 <body>
-	<!-- -->
-	<div id="te-navbar"></div>
-	<!-- -->
-	<div id="te-content" class="container wrapper"></div>
-	
-	<!-- -->
-  	<script src="static/lib/react.js"></script>
-	<script src="static/lib/jquery-2.1.4.js"></script>
-	<script src="static/lib/bootstrap.js"></script>
-	<!-- -->
-	<script>
-	require('static/module/main/index-main');
-	</script>
+  <!-- -->
+  <div id="te-navbar"></div>
+  <!-- -->
+  <div id="te-content" class="container wrapper"></div>
+  <!-- -->
+  <canvas id="te-canvas"></canvas>
+  <!-- -->
+  <div id="te-footer"></div>
+  <!-- -->
+  <script src="static/lib/react.js"></script>
+  <script src="static/lib/jquery-2.1.4.js"></script>
+  <script src="static/lib/bootstrap.js"></script>
+  <script src="static/lib/velocity.js"></script>
+  <!-- -->
+  <script>
+  require('static/module/main/index-main');
+  </script>
 </body>
 
 </html>
