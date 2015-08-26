@@ -29,21 +29,32 @@ var
 /* All data files */
 var
   jsonIndexNavbar = '/teaera/static/json/te-data-index-navbar.json',
-  jsonTimeline = '/teaera/static/json/te-data-timeline.json';
-
+  jsonTimeline = '/teaera/static/json/te-data-timeline.json',
+  jsonProject = '/teaera/static/json/te-data-project.json';
+/* All handlers */
 var
+  initIndex = function () {
+    modTECanvas.init(idTECanvas);
+  },
   initTimeline = function () {
     modTETimeline.init(idTEContent, {
       source: jsonTimeline
     });
+  },
+  initProject = function () {
+    modTETable.init(idTEContent, {
+      source: jsonProject,
+      type: 'project'
+    });
+  },
+  initLeisure = function () {
+    // modTETable.init(idTEContent, {});
   };
-
-console.log('> index-main: init');
-
-modTENavbar.init(idTENavbar, {
-  source: jsonIndexNavbar,
-  callbackMapper: {
+/**/
+var
+  callbackMapper = {
     index: function () {
+      initIndex();
       //
       document.getElementById(idTEContent).style.display = 'none';
       document.getElementById(idTECanvas).style.display = 'block';
@@ -55,6 +66,7 @@ modTENavbar.init(idTENavbar, {
       document.getElementById(idTECanvas).style.display = 'none';
     },
     project: function () {
+      initProject();
       //
       document.getElementById(idTEContent).style.display = 'block';
       document.getElementById(idTECanvas).style.display = 'none';
@@ -64,19 +76,14 @@ modTENavbar.init(idTENavbar, {
       document.getElementById(idTEContent).style.display = 'block';
       document.getElementById(idTECanvas).style.display = 'none';
     }
-  }
-});
+  };
 
+console.log('> index-main: init');
+//
+modTENavbar.init(idTENavbar, {
+  source: jsonIndexNavbar,
+  callbackMapper: callbackMapper
+});
+//
 modTEFooter.init(idTEFooter, {});
-
-/*modTETable.init(idTEContent, {
-  list: [
-    {
-      name: 'Black&White index',
-      link: 'http://teater.sinaapp.com/CZT_Index/libs/TE/test/pages/test_index_b&w.html',
-      desc: '黑白'
-    },
-  ]
-});
-modTEVelocityDemo.init(idTEContent, {});
-modTECanvas.init(idTECanvas, {});*/
+callbackMapper['index']();

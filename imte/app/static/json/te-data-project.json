@@ -5,7 +5,7 @@
     "list": [
       {
         "title": "Weixinheadline",
-        "link": "",
+        "link": "http://appsearch.m.sogou.com/",
         "company": {
           "name": "Sogou",
           "link": "http://appsearch.m.sogou.com/",
@@ -32,7 +32,7 @@
           "java"
         ],
         "desc": [
-          ""
+          "Software engineer(Java, Front-end);"
         ],
         "start-date": "2013-11",
         "end-date": "2014-06"

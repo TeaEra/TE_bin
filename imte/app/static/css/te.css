@@ -94,3 +94,15 @@ body {
   padding-top: 25px;
   padding-bottom: 25px;
 }
+
+.i-area {
+  margin-right: 10px;
+}
+
+.max-30p {
+  max-width: 30%;
+}
+
+#te-main {
+  min-height: 800px;
+}

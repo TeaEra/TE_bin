@@ -113,6 +113,7 @@ var TENavBar = React.createClass({
 });
 
 modTENavbar.init = function (elemId, info) {
+  //
   React.render(
     <TENavBar info={info}/>,
     document.getElementById(elemId)

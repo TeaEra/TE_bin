@@ -24,8 +24,8 @@ modTECanvas.init = function (elemId, info) {
     this.error('not canvas');
   }
   //
-  elem.width = 300;
-  elem.height = 300;
+  elem.width = '100%';
+  elem.height = '100%';
   ctx.beginPath();
   ctx.arc(100, 75, 50, 0, 2*Math.PI);
   ctx.stroke();
