@@ -8,3 +8,5 @@ dist
 .module-cache
 
 imte.conf.json
+
+APP/
