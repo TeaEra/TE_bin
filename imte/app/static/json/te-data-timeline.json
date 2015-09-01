@@ -6,6 +6,7 @@
       {
         "title": "Sogou",
         "date": "present",
+        "type": "folder-open",
         "desc": [
           "Front-end engineer; PHPer;"
         ]
@@ -13,6 +14,7 @@
       {
         "title": "Sogou",
         "date": "2014-10",
+        "type": "folder-open",
         "desc": [
           "Front-end engineer;"
         ]
@@ -20,6 +22,7 @@
       {
         "title": "ecVision",
         "date": "2014-06",
+        "type": "folder-open",
         "desc": [
           "Expiration of contract;"
         ]
@@ -27,6 +30,7 @@
       {
         "title": "ecVision",
         "date": "2013-11",
+        "type": "folder-open",
         "desc": [
           "Contract starting date;"
         ]
@@ -34,6 +38,7 @@
       {
         "title": "Lab OpenCog",
         "date": "2013-09",
+        "type": "folder-open",
         "desc": [
           "Resign from Project DeSTIN;"
         ]
@@ -41,6 +46,7 @@
       {
         "title": "Lab OpenCog",
         "date": "2013-03",
+        "type": "folder-open",
         "desc": [
           "Start improving Project DeSTIN;"
         ]
@@ -48,6 +54,7 @@
       {
         "title": "Biomind LLC",
         "date": "2013-03",
+        "type": "folder-open",
         "desc": [
           "Job relocation from OpenBiomind to DeSTIN;"
         ]
@@ -55,6 +62,7 @@
       {
         "title": "Biomind LLC",
         "date": "2012-03",
+        "type": "folder-open",
         "desc": [
           "Start working on bioinformatics;"
         ]
@@ -62,6 +70,7 @@
       {
         "title": "Hong Kong Polytechnic University",
         "date": "2012.01",
+        "type": "book",
         "desc": [
           "Graduate from HKPU;"
         ]
@@ -69,6 +78,7 @@
       {
         "title": "Hong Kong Polytechnic University",
         "date": "2010.09",
+        "type": "book",
         "desc": [
           "Term begins;"
         ]
@@ -76,6 +86,7 @@
       {
         "title": "Tianjin University",
         "date": "2010-07",
+        "type": "book",
         "desc": [
           "Graduate from Tianjin University;"
         ]
@@ -83,6 +94,7 @@
       {
         "title": "Tianjin University",
         "date": "2006-09",
+        "type": "book",
         "desc": [
           "Term begins;"
         ]

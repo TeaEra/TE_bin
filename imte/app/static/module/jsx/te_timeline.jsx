@@ -1,11 +1,11 @@
 /**
  * Created by teaera on 2015-08-23;
- * 
+ *
  * timeline
  */
- 
+
 /* jshint ignore:start */
- 
+
 /* Import */
 
 /* Export */
@@ -59,7 +59,7 @@ var TETimeline = React.createClass({
                 <div className="timeline-heading">
                   <h4 className="timeline-title">{title}</h4>
                   <p>
-                    <small className="text-muted"><i className="glyphicon glyphicon-calendar"></i>{date}</small>
+                    <small className="text-muted"><i className="glyphicon glyphicon-calendar"></i>&nbsp;{date}</small>
                   </p>
                 </div>
                 <div className="timeline-body">
@@ -81,5 +81,5 @@ modTETimeline.init = function (elemId, info) {
     document.getElementById(elemId)
   );
 };
- 
+
 /* jshint ignore:end */

@@ -12,7 +12,7 @@ if (isDebug) {
 else {
   isCompressed = true;
   isVersioned = true;
-  fis.set('project.ignore', ['test/**']);
+  /*fis.set('project.ignore', ['test/**']);*/
 }
 
 /**

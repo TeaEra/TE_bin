@@ -1,11 +1,11 @@
 /**
  * Created by teaera on 2015-08-23;
- * 
+ *
  * timeline
  */
- 
+
 /* jshint ignore:start */
- 
+
 /* Import */
 
 /* Export */
@@ -59,7 +59,7 @@ var TETimeline = React.createClass({displayName: "TETimeline",
                 React.createElement("div", {className: "timeline-heading"}, 
                   React.createElement("h4", {className: "timeline-title"}, title), 
                   React.createElement("p", null, 
-                    React.createElement("small", {className: "text-muted"}, React.createElement("i", {className: "glyphicon glyphicon-calendar"}), date)
+                    React.createElement("small", {className: "text-muted"}, React.createElement("i", {className: "glyphicon glyphicon-calendar"}), " ", date)
                   )
                 ), 
                 React.createElement("div", {className: "timeline-body"}, 
@@ -81,5 +81,5 @@ modTETimeline.init = function (elemId, info) {
     document.getElementById(elemId)
   );
 };
- 
+
 /* jshint ignore:end */
