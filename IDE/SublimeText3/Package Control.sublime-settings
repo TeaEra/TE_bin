@@ -1,0 +1,26 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoFileName",
+		"Babel",
+		"ConvertToUTF8",
+		"DocBlockr",
+		"EditorConfig",
+		"Emmet",
+		"Grunt",
+		"HTML-CSS-JS Prettify",
+		"Indent XML",
+		"JSHint Gutter",
+		"Package Control",
+		"Pretty JSON",
+		"ReactJS",
+		"Require CommonJS Modules Helper",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SVN"
+	]
+}
