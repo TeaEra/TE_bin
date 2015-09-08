@@ -23,13 +23,79 @@ var TEVelocityDemo = React.createClass({displayName: "TEVelocityDemo",
       duration: 300
     });
   },
+  demoClickV1: function (tarId, hammerId) {
+    var
+      $tarElem = $('#' + tarId),
+      $hammerElem = $('#' + hammerId);
+    //
+    // TODO: single animation;
+    /*$hammerElem.velocity({
+      left: $tarElem.offset().left + 'px',
+      top: $tarElem.offset().top + 'px'
+    }, {
+      duration: 1000,
+      easing: 'linear'
+    });*/
+    //
+    // TODO: sequence animation;
+    var seq = [
+      {
+        elements: $hammerElem,
+        properties: {
+          left: $hammerElem.offset().left + 'px',
+          top: $hammerElem.offset().top + 'px',
+          rotateX: 0,
+          rotateY: 0,
+          rotateZ: 0,
+        },
+        options: {
+          duration: 20
+        }
+      },
+      {
+        elements: $hammerElem,
+        properties: {
+          left: $tarElem.offset().left + 'px',
+          top: $tarElem.offset().top + 'px'
+        },
+        options: {
+          duration: 1000,
+          easing: 'linear'
+        }
+      },
+      {
+        elements: $hammerElem,
+        properties: {
+          rotateZ: -60
+        },
+        options: {
+          duration: 500,
+          easing: 'linear'
+        }
+      }
+    ];
+    $.Velocity.RunSequence(seq);
+  },
   render: function () {
     var
       that = this,
       id = 'demo1',
-      demoClick1 = that.demoClick1.bind(that, id);
+      idV1 = 'v1',
+      idV2 = 'v2',
+      idV3 = 'v3',
+      idV4 = 'v4',
+      demoClick1 = that.demoClick1.bind(that, id),
+      demoClickV1 = that.demoClickV1.bind(that, idV1, idV4),
+      demoClickV2 = that.demoClickV1.bind(that, idV2, idV4),
+      demoClickV3 = that.demoClickV1.bind(that, idV3, idV4);
     return (
-      React.createElement("div", {id: id, onClick: demoClick1}, React.createElement("p", null, "Let us move"))
+      React.createElement("div", null, 
+        React.createElement("div", {id: id, onClick: demoClick1}, React.createElement("p", null, "Let us move")), 
+        React.createElement("div", {id: idV1, className: "test-v v1", onClick: demoClickV1}, "red"), 
+        React.createElement("div", {id: idV2, className: "test-v v2", onClick: demoClickV2}, "green"), 
+        React.createElement("div", {id: idV3, className: "test-v v3", onClick: demoClickV3}, "blue"), 
+        React.createElement("div", {id: idV4, className: "test-v v4"})
+      )
     );
   }
 });

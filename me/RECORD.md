@@ -4,3 +4,4 @@
 - ~~weinre~~
 - velocity.js
 - canvas
+- (chartkick)[https://github.com/ankane/chartkick]

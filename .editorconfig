@@ -1,7 +1,7 @@
 # editorconfig.org
 root = true
 
-[*.{css,jsx,js,html,json}]
+[*.{css,jsx,js,html,json,sass,scss}]
 indent_style = space
 indent_size = 2
 

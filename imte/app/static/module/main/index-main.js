@@ -34,7 +34,8 @@ var
 /* All handlers */
 var
   initIndex = function () {
-    modTECanvas.init(idTECanvas);
+    // modTECanvas.init(idTECanvas);
+    modTEVelocityDemo.init(idTEContent);
   },
   initTimeline = function () {
     modTETimeline.init(idTEContent, {
@@ -56,8 +57,10 @@ var
     index: function () {
       initIndex();
       //
-      document.getElementById(idTEContent).style.display = 'none';
-      document.getElementById(idTECanvas).style.display = 'block';
+      /*document.getElementById(idTEContent).style.display = 'none';
+      document.getElementById(idTECanvas).style.display = 'block';*/
+      document.getElementById(idTEContent).style.display = 'block';
+      document.getElementById(idTECanvas).style.display = 'none';
     },
     timeline: function () {
       initTimeline();

@@ -78,6 +78,14 @@ module.exports = function (grunt) {
       fis3PreRelease: {
         // command: 'cd <%=config.app %> && fis3 server clean && fis3 release && fis3 server start'
         command: 'cd <%=config.app %> && fis3 release qa'
+      },
+      //
+      watchJsx: {
+        command: 'jsx --watch --extension jsx <%=config.app %>/static/module/jsx <%=config.app %>/static/module/component'
+      },
+      //
+      watchSass: {
+        command: 'sass --watch <%=config.app %>/static/css/sass:<%=config.app %>/static/css/sass-out'
       }
 		},
 
