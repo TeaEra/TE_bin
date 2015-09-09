@@ -69,7 +69,8 @@ var TEVelocityDemo = React.createClass({displayName: "TEVelocityDemo",
           rotateZ: -60
         },
         options: {
-          duration: 500,
+          sequenceQueue: false,
+          duration: 100,
           easing: 'linear'
         }
       }
