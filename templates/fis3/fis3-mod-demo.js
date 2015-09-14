@@ -1,6 +1,8 @@
 /**
  * Created by teaera;
  */
+
+'use strict';
  
 /* Import */
 

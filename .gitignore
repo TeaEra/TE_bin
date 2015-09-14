@@ -12,3 +12,5 @@ imte.conf.json
 APP/
 
 .sass-cache
+
+.vscode
