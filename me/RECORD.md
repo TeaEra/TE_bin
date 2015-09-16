@@ -5,3 +5,4 @@
 - velocity.js
 - canvas
 - (chartkick)[https://github.com/ankane/chartkick]
+- 瓦力抢红包？流氓软件
