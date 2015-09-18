@@ -3,7 +3,7 @@
  */
 (function () {
   'use strict';
-  
+
   /**
    * Functions with this flag:
    *  [Import-moment: before loading DOM]
@@ -12,10 +12,10 @@
 
   /* global TEKit */
   window.TEKit = window.TEKit || {};
-  
+
   /****************************************************************************/
   /** Module: [pre] */
-  
+
   /**
    * [Import-moment: before loading DOM]
    */
@@ -23,10 +23,10 @@
     that.src = that.getAttribute('data-error-src');
     that.onerror = null;
   };
-  
+
   /****************************************************************************/
   /** Module: [DOM] */
-  
+
   // Content height;
   TEKit.getBodyScrollHeight = function () {
     return document.getElementsByTagName('body')[0].offsetHeight;
@@ -109,7 +109,7 @@
     }
     elem[funcName](event, callback);
   };
-  
+
   TEKit.off = function (elem, event) {
     elem[event] = null;
   };
@@ -130,7 +130,7 @@
       TEKit.on(elem, 'error', handler);
     }
   };
-  
+
   /**
    * [Import-moment: before loading DOM]
    */
@@ -166,10 +166,10 @@
     }
     D.style.visibility = "visible";
   };
-  
+
   /****************************************************************************/
   /** Module: [ajax] */
-  
+
   TEKit.initXHR = function () {
     var xhr;
     if (window.XMLHttpRequest) {
@@ -209,13 +209,13 @@
       }
     };
   };
-  
+
   /****************************************************************************/
   /** Module: [cookie] */
-  
+
   TEKit.setCookie = function (name, value, days, path) {
     //
-    var 
+    var
       exp = new Date(),
       val = null;
     exp.setTime(exp.getTime() + 1000 * 60 * 60 * 24 * days);
@@ -247,7 +247,7 @@
     if (document.cookie.length > 0) {
       var c_start = document.cookie.indexOf(name + "=");
       if (c_start != -1) {
-        var 
+        var
           c_start = c_start + name.length + 1,
           c_end = document.cookie.indexOf(";", c_start);
         if (c_end == -1)
@@ -282,7 +282,7 @@
 
     return event;
   };
-  
+
   TEKit.removeClass = function (elem, targetClass) {
     var
       cn = elem.className,
@@ -293,7 +293,7 @@
     }
     elem.className = cl.join(' ');
   };
-  
+
   TEKit.addClass = function (elem, targetClass) {
     var
       cn = elem.className,
@@ -304,7 +304,7 @@
     }
     elem.className = cl.join(' ');
   };
-  
+
   TEKit.replaceClass = function (elem, targetClass, newClass) {
     var
       cn = elem.className,
@@ -315,7 +315,7 @@
     }
     elem.className = cl.join(' ');
   };
-  
+
   TEKit.parseParams = function (search) {
     if (!search) {
       return {};
@@ -338,21 +338,21 @@
     }
     return paramObj;
   };
-  
+
   /****************************************************************************/
   /** Module: [math] */
-  
+
   /**
-   * 
+   *
    */
   TEKit.getRandomInteger = function (start, end) {
     return Math.floor(Math.random() * (end - start + 1) + start);
   };
-  
+
   /****************************************************************************/
   /** Module: 奇技淫巧篇 */
   /** Module: [diabolic tricks and wicked craft] */
-  
+
   /**
    * [Link](https://gist.github.com/padolsey/527683)
    */
@@ -375,7 +375,7 @@
     // non-IE will still get undefined as before
     return v > 4 ? v : document.documentMode;
   };
-  
+
   /**
    * [Link](http://bbs.html5cn.org/thread-80269-1-1.html)
    *
@@ -410,21 +410,54 @@
         console.warn("电量水平变化: ", battery.level);
     }, false);
   };
-  
+
   /****************************************************************************/
   /** Module: [$] */
   /**
    * The following functions all depend on JQuery!!!
    */
-  
+
   /* global $ */
-  
+
   TEKit.inputFocusScroll = function (id) {
     $(id).on('focus', function () {
       $('html, body').animate({
         scrollTop: $(this).offset().top - 20 >= 0 ? $(this).offset().top - 20 : 0
       }, 300);
     });
+  };
+
+  /****************************************************************************/
+  TEKit.parseParams = function(search) {
+    if (!search) {
+      return {};
+    }
+    var
+      paramObj = {},
+      paramList = search.split('&');
+    for (var i = 0, size = paramList.length; i < size; ++i) {
+      var
+        param = paramList[i],
+        sep = '=',
+        sepIdx = param.indexOf(sep);
+      if (sepIdx >= 0) {
+        var
+          tempList = param.split(sep),
+          key = tempList[0],
+          value = '';
+        try {
+          value = decodeURIComponent(tempList[1]);
+        } catch (e) {
+          value = '';
+        }
+        paramObj[key] = value;
+      }
+    }
+    return paramObj;
+  };
+
+  TEKit.getRandNum = function(start, end) {
+    return Math.floor(Math.random() * (end - start + 1) + start);
   };
 
 })();
