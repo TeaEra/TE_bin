@@ -31,6 +31,84 @@ var
     ncp = require('ncp').ncp,
     mkdirp = require('mkdirp');
 
+/**/
+var
+    comp1 = 'package.json',
+    comp2 = 'app',
+    comp3 = 'app/inc',
+    comp4 = 'app/lib',
+    comp5 = 'app/vendor',
+    comp6 = '.editorconfig';
+/**/
+var
+    handler1 = function (answers) {
+        var
+            components = answers.init;
+        for (var i=0, size=components.length; i<size; ++i) {
+            var
+                currComp = components[i];
+            switch (currComp) {
+                case comp1:
+                    ncp('node_modules/te-scaffold/demo/' + currComp, './' + currComp, function (err) {
+                        if (err) {
+                            console.log('> ERR: ' + err);
+                            process.exit(1);
+                        }
+                        console.log('OK: ' + currComp + ' inited!');
+                    });
+                    break;
+                case comp2:
+                    ncp('node_modules/te-scaffold/demo/' + currComp, './' + currComp, function (err) {
+                        if (err) {
+                            console.log('> ERR: ' + err);
+                            process.exit(1);
+                        }
+                        console.log('OK: ' + currComp + ' inited!');
+                    });
+                    // TODO:
+                    mkdirp.sync('./' + currComp + '/api');
+                    mkdirp.sync('./' + currComp + '/conf');
+                    mkdirp.sync('./' + currComp + '/static/css');
+                    mkdirp.sync('./' + currComp + '/static/js');
+                    mkdirp.sync('./' + currComp + '/static/images');
+                    mkdirp.sync('./' + currComp + '/static/lib');
+                    break;
+                case comp3:
+                    ncp('node_modules/te-scaffold/demo/optional/' + currComp, './' + currComp, function (err) {
+                        if (err) {
+                            console.log('> ERR: ' + err);
+                            process.exit(1);
+                        }
+                        console.log('OK: ' + currComp + ' inited!');
+                    });
+                    break;
+                case comp4:
+                    ncp('node_modules/te-scaffold/demo/optional/' + currComp, './' + currComp, function (err) {
+                        if (err) {
+                            console.log('> ERR: ' + err);
+                            process.exit(1);
+                        }
+                        console.log('OK: ' + currComp + ' inited!');
+                    });
+                    break;
+                case comp5:
+                    mkdirp.sync('./' + currComp);
+                    break;
+                case comp6:
+                    ncp('node_modules/te-scaffold/demo/_editorconfig', './' + currComp, function (err) {
+                        if (err) {
+                            console.log('> ERR: ' + err);
+                            process.exit(1);
+                        }
+                        console.log('OK: ' + currComp + ' inited!');
+                    });
+                    break;
+                default:
+                    // Pass;
+            }
+        }
+    };
+
 inquirer.prompt([
     {
         type: 'checkbox',
@@ -38,102 +116,28 @@ inquirer.prompt([
         name: 'init',
         choices: [
             {
-                name: 'package.json',
+                name: comp1,
                 checked: true
             },
             {
-                name: 'app',
+                name: comp2,
                 checked: true
             },
             {
-                name: 'inc'
+                name: comp3
             },
             {
-                name: 'lib'
+                name: comp4
             },
             {
-                name: 'vendor'
+                name: comp5
             },
             {
-                name: '.editorconfig'
+                name: comp6
             },
         ]
     }
-], function (answers) {
-    var
-        components = answers.init;
-    for (var i=0, size=components.length; i<size; ++i) {
-        var
-            currComp = components[i];
-        switch (currComp) {
-            case 'package.json':
-                ncp('node_modules/te-scaffold/demo/' + currComp, './' + currComp, function (err) {
-                    if (err) {
-                        console.log('> ERR: ' + err);
-                        process.exit(1);
-                    }
-                    console.log('OK: ' + currComp + ' inited!');
-                });
-                break;
-            case 'app':
-                ncp('node_modules/te-scaffold/demo/' + currComp, './' + currComp, function (err) {
-                    if (err) {
-                        console.log('> ERR: ' + err);
-                        process.exit(1);
-                    }
-                    console.log('OK: ' + currComp + ' inited!');
-                });
-                // TODO:
-                mkdirp.sync('./' + currComp + '/api');
-                mkdirp.sync('./' + currComp + '/conf');
-                mkdirp.sync('./' + currComp + '/static/css');
-                mkdirp.sync('./' + currComp + '/static/js');
-                mkdirp.sync('./' + currComp + '/static/images');
-                mkdirp.sync('./' + currComp + '/static/lib');
-                break;
-            case 'inc':
-                ncp('node_modules/te-scaffold/demo/optional/' + currComp, './app/' + currComp, function (err) {
-                    if (err) {
-                        console.log('> ERR: ' + err);
-                        process.exit(1);
-                    }
-                    console.log('OK: ' + currComp + ' inited!');
-                });
-                break;
-            case 'lib':
-                ncp('node_modules/te-scaffold/demo/optional/' + currComp, './app/' + currComp, function (err) {
-                    if (err) {
-                        console.log('> ERR: ' + err);
-                        process.exit(1);
-                    }
-                    console.log('OK: ' + currComp + ' inited!');
-                });
-                break;
-            case 'vendor':
-                // ncp('node_modules/te-scaffold/demo/optional/' + currComp, './app/' + currComp, function (err) {
-                //     if (err) {
-                //         console.log('> ERR: ' + err);
-                //         process.exit(1);
-                //     }
-                //     console.log('OK: ' + currComp + ' inited!');
-                // });
-                // TODO:
-                mkdirp.sync('./app/' + currComp);
-                break;
-            case '.editorconfig':
-                ncp('node_modules/te-scaffold/demo/' + currComp.replace('.', '_'), './' + currComp, function (err) {
-                    if (err) {
-                        console.log('> ERR: ' + err);
-                        process.exit(1);
-                    }
-                    console.log('OK: ' + currComp + ' inited!');
-                });
-                break;
-            default:
-                // Pass;
-        }
-    }
-});
+], handler1);
 
 
 /**************************************************/
