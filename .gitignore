@@ -1,12 +1,13 @@
 .settings
 .DS_store
-
 .idea
 
+# node
 node_modules
+npm-debug.log
+
 dist
 .module-cache
-
 imte.conf.json
 
 APP/
