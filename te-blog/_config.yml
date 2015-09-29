@@ -71,3 +71,9 @@ deploy:
   type: git
   repository: git@github.com:TeaEra/teaera.github.io.git
   branch: master
+
+# Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
