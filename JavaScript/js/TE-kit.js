@@ -311,7 +311,7 @@ TEKit.getCookie = function (name) {
  *
  */
 TEKit.getRandNum = TEKit.getRandomInteger = function (start, end) {
-  return Math.floor(Math.random() * (end - start + 1) + start);
+  return Math.floor( Math.random() * (end - start + 1) + start );
 };
 
 /****************************************************************************/
@@ -392,12 +392,21 @@ TEKit.test_battery = function () {
 
 /* global $ */
 
-TEKit.inputFocusScroll = function (id) {
-  $(id).on('focus', function () {
+TEKit.inputFocusScroll = function (inputElem, paddingElem) {
+  var
+    preservedSpace = 50,
+    thisTop = $(this).offset().top;
+  inputElem.on('focus', function () {
     $('html, body').animate({
-      scrollTop: $(this).offset().top - 20 >= 0 ? $(this).offset().top - 20 : 0
+      scrollTop: thisTop - preservedSpace >= 0 ? thisTop - preservedSpace : 0
     }, 300);
+    //
+    paddingElem.height(thisTop);
   });
+};
+
+TEKit.clearBlankPadding = function (paddingElem) {
+  paddingElem.height(0);
 };
 
 /****************************************************************************/
