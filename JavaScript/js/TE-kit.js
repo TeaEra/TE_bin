@@ -394,9 +394,10 @@ TEKit.test_battery = function () {
 
 TEKit.inputFocusScroll = function (inputElem, paddingElem) {
   var
-    preservedSpace = 50,
-    thisTop = $(this).offset().top;
+    preservedSpace = 50;
   inputElem.on('focus', function () {
+    var
+      thisTop = $(this).offset().top;
     $('html, body').animate({
       scrollTop: thisTop - preservedSpace >= 0 ? thisTop - preservedSpace : 0
     }, 300);
