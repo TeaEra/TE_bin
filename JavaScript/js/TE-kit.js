@@ -4,16 +4,19 @@
  */
 
 'use strict';
- 
+
+var
+  isGlobal = true;
+
 /* Import */
 
 /* Export */
 var TEKit = {};
 
-if ( typeof module === 'object' && typeof module.exports === 'object' ) {
+if ( !isGlobal && typeof module === 'object' && typeof module.exports === 'object' ) {
   module.exports = TEKit;
 }
-else {
+else if (isGlobal) {
   window.TEKit = window.TEKit || TEKit;
 }
 
@@ -356,31 +359,32 @@ TEKit.getIEVersion = function () {
  * only 'window.navigator.battery' available for now;
  *
  */
-TEKit.test_battery = function () {
+TEKit.testBattery = function () {
   // 获取电池对象!
   var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
 
   if (! battery) {
-    return;
+    console.log('> #navigator.battery# not supported');
+    return false;
   }
 
-  // 显示一些有用属性值
-  console.warn("电池充电状态: ", battery.charging); // true
-  console.warn("电量水平: ", battery.level); // 0.58
+  // Some properties;
+  console.warn("电池充电状态: ", battery.charging);  // true
+  console.warn("电量水平: ", battery.level);  // 0.58
   console.warn("电池使用时间: ", battery.dischargingTime);
 
   // 设置一些事件**
   battery.addEventListener("chargingchange", function(e) {
-      console.warn("电池充电状态变化: ", battery.charging);
+    console.warn("电池充电状态变化: ", battery.charging);
   }, false);
   battery.addEventListener("chargingtimechange", function(e) {
-      console.warn("电池充电时间变化: ", battery.chargingTime);
+    console.warn("电池充电时间变化: ", battery.chargingTime);
   }, false);
   battery.addEventListener("dischargingtimechange", function(e) {
-      console.warn("电池使用时间变化: ", battery.dischargingTime);
+    console.warn("电池使用时间变化: ", battery.dischargingTime);
   }, false);
   battery.addEventListener("levelchange", function(e) {
-      console.warn("电量水平变化: ", battery.level);
+    console.warn("电量水平变化: ", battery.level);
   }, false);
 };
 
@@ -447,4 +451,61 @@ TEKit.imgLoad = function vrImgLoad(D, E, A, B) {
       }
   }
   D.style.visibility = "visible";
+};
+
+/**
+ * [imgLoad2 description]
+ * @param  {[type]} elem   [description]
+ * @param  {[type]} method [description]
+ * @param  {[type]} width  [description]
+ * @param  {[type]} height [description]
+ * @return {[type]}        [description]
+ *
+ * This is stolen from weixin.sogou.com; the compressed source code is above this;
+ */
+TEKit.imgLoad2 = function (elem, method, width, height) {
+  //
+  var
+    ew = elem.width,
+    eh = elem.height,
+    offsetw = elem.offsetWidth;
+  //
+  if (method === 'auto') {
+    method = (ew < width && eh < height) ? 'blank' : 'fit';
+  }
+  //
+  if ( (method === 'fit' && eh / ew > height / width) || (method === 'blank' && eh / ew < height / width) ) {
+    elem.style.width = width + 'px';
+    elem.style.marginTop = '0px';
+  }
+  else {
+    elem.style.height = height + 'px';
+    if (offsetw) {
+      elem.style.marginLeft = (width - offestw) / 2 + 'px';
+    }
+    else {
+      var
+        temp = 0;
+        (function (temp, elem) {
+          function f(elem) {
+            var
+              ow = elem.offsetWidth;
+            if (ow) {
+              elem.style.marginLeft = (width - ow) / 2 + 'px';
+            }
+            else {
+              temp++;
+              if (temp < 11) {
+                setTimeout(function () {
+                  f(elem)
+                }, 10);
+              }
+            }
+          }
+          f(elem);
+        })(temp, elem);
+    }
+  }
+  //
+  elem.style.visibility = 'visible';
 };
