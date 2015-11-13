@@ -5,7 +5,7 @@ define(function (require, exports, module) {
 	module.exports = Test;
 
 	Test.helloWorld = function () {
-		alert('Hello world!');
+		console.log('Hello world!');
 	};
 
 });
