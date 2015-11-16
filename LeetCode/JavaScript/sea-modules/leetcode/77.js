@@ -3,7 +3,7 @@ define(function (require, exports, module) {
 	/**
 	 * Combinations
 	 */
-	
+
 	'use strict';
 
 	/**
@@ -12,7 +12,7 @@ define(function (require, exports, module) {
 	 * @return {number[][]}
 	 */
 	var combine = function(n, k) {
-	    /*if (k === 0) {
+	    if (k === 0) {
 	    	return [];
 	    }
 	    var resArr = [],
@@ -29,11 +29,11 @@ define(function (require, exports, module) {
 	    	var j = 0,
 	    		restArr = combine(n-i-1, k-1);
 	    	for (j=0; j<restArr.length; ++j) {
-	    		var eachArr = tmpArr.concat(restArr[j]);
+	    		var eachArr = restArr[j].concat(tmpArr);
 	    		resArr.push(eachArr);
 	    	}
 	    }
-	    return resArr;*/
+	    return resArr;
 	};
 
 	module.exports = combine;

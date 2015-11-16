@@ -43,7 +43,12 @@ define(function (require, exports, module) {
     // var M260 = require('leetcode/260');
     // var M242 = require('leetcode/242');
     // var M268 = require('leetcode/268');
-    var M11 = require('leetcode/11');
+    // var M11 = require('leetcode/11');
+    // var M162 = require('leetcode/162');
+    // var M77 = require('leetcode/77');
+    var M279 = require('leetcode/279');
+    // var M287 = require('leetcode/287');
+    // var M42 = require('leetcode/42');
 
     // console.log(M46([1,2,3]));
 
@@ -144,6 +149,17 @@ define(function (require, exports, module) {
 
     // console.log(M268([0,1,3]));
 
-    console.log(M11());
+    // console.log(M11([1,2,3]));
+
+    // console.log(M162([1,2,3,1]));
+
+    // console.log(M77(2, 2));
+
+    console.log(M279(12));
+
+    // console.log(M287());
+
+    // console.log(M42([0,1,0,2,1,0,1,3,2,1,2,1]));
+    // console.log(M42([5,2,1,2,1,5]));
 
 });
