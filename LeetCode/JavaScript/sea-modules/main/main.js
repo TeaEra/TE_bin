@@ -51,7 +51,8 @@ define(function (require, exports, module) {
     // var M42 = require('leetcode/42');
     // var M53 = require('leetcode/53');
     // var M96 = require('leetcode/96');
-    var M309 = require('leetcode/309');
+    // var M309 = require('leetcode/309');
+    var M300 = require('leetcode/300');
 
     // console.log(M46([1,2,3]));
 
@@ -169,6 +170,8 @@ define(function (require, exports, module) {
 
     // console.log(M96(3));
 
-    console.log(M309([1,2,3,0,2]));
+    // console.log(M309([1,2,3,0,2]));
+
+    console.log(M300());
 
 });
