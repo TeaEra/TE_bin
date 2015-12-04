@@ -1,6 +1,7 @@
 .settings
 .DS_store
 .idea
+.vscode
 
 # node
 node_modules
@@ -13,5 +14,3 @@ imte.conf.json
 APP/
 
 .sass-cache
-
-.vscode
