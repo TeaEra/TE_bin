@@ -11,6 +11,4 @@ dist
 .module-cache
 imte.conf.json
 
-APP/
-
 .sass-cache
