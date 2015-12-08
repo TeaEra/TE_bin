@@ -1,8 +1,0 @@
-- jquery 一些animtion的实现；
-- how-old.net 网页调用mobile相机或者相册的实现方法；
-- fastclick
-- ~~weinre~~
-- velocity.js
-- canvas
-- (chartkick)[https://github.com/ankane/chartkick]
-- 瓦力抢红包？流氓软件
