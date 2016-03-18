@@ -12,3 +12,7 @@ dist
 imte.conf.json
 
 .sass-cache
+
+#
+te-laravel
+te-php
