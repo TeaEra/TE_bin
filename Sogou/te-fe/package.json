@@ -1,0 +1,17 @@
+{
+  "name": "te-fe",
+  "version": "1.0.0",
+  "description": "front-end deployment tool, derived from module-wxpage;",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "keywords": [
+    "front-end;deployment;"
+  ],
+  "author": "TeaEra",
+  "license": "ISC",
+  "dependencies": {
+    "phplint": "^1.7.1"
+  }
+}
