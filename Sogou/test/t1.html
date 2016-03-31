@@ -1,0 +1,150 @@
+<body>
+</body>
+<script>
+'use strict';
+
+var Loader = (function () {
+
+  var queueGroup = [];
+  var countCurrentGroupFinished = 0;
+  var finishCallback;
+
+  var isFunc = function (obj) {
+    return Object.prototype.toString.call(obj) === '[object Function]';
+  };
+
+  var isArray = function (obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]';
+  };
+
+  var isAnyStart = function(url_items) {
+    for (var idx=0; idx<url_items.length; ++idx) {
+      if (url_items[idx].start == true )
+        return true;
+    }
+    return false;
+  };
+
+  var isCurrentGroupFinished = function(url_items) {
+    for (var idx=0; idx<url_items.length; ++idx) {
+      if (url_items[idx].finished == false )
+        return false;
+    }
+    return true;
+  };
+
+  var isAnyFinished = function(url_items) {
+    for (var idx=0; idx<url_items.length; ++idx) {
+      if (url_items[idx].finished == true )
+        return true;
+    }
+    return false;
+  };
+
+  var loadFinished = function () {
+    nextGroup();
+  };
+
+  var loadError = function (err) {
+    console.error(err.target.src);
+  };
+
+  var nextGroup = function () {
+    while (queueGroup.length > 0) {
+      if (isFunc(queueGroup[0])) {
+        queueGroup[0]();
+        queueGroup.shift();
+        continue;
+      } else if (isCurrentGroupFinished(queueGroup[0])) {
+        queueGroup.shift();
+        continue;
+      } else if (!isAnyStart(queueGroup[0])) {
+        loadGroup();
+        break;
+      } else {
+        break;
+      }
+    }
+  };
+
+  var loadGroup = function () {
+    for (var i=0, size=queueGroup[0].length; i<size; ++i) {
+      loadScript(queueGroup[0][i]);
+    }
+  };
+
+  var loadScript = function (scriptItem) {
+    var url = scriptItem.url;
+    scriptItem.start = true;
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+
+    if (script.readyState) {  // IE;
+      script.onreadystatechange = function () {
+        if (script.readyState == 'loaded'
+            || script.readyState == 'complete') {
+          scriptItem.finished = true;
+          loadFinished();
+        }
+      };
+    } else {  // Other browsers;
+      script.onload = function () {
+        scriptItem.finished = true;
+        loadFinished();
+      };
+    }
+
+    script.onerror = loadError;
+
+    script.src = url + '?v=' + Date.parse(new Date());
+    document.body.appendChild(script);
+  };
+
+  var addGroup = function (arrScripts) {
+    if (arrScripts.length > 0) {
+      var group = [];
+      for (var i=0, size=arrScripts.length; i<size; ++i) {
+        group.push({
+          url: arrScripts[i],
+          start: false,
+          finished: false
+        });
+      }
+      queueGroup.push(group);
+    }
+    nextGroup();
+  };
+
+  var addFunc = function (callback) {
+    callback && isFunc(callback) && queueGroup.push(callback);
+    console.log(queueGroup);
+    nextGroup();
+  };
+
+  var instanceAPI = {
+    load: function () {
+      addGroup([].slice.call(arguments));
+      return instanceAPI;
+    },
+    wait: function (callback) {
+      addFunc(callback);
+      return instanceAPI;
+    }
+  };
+
+  return instanceAPI;
+})();
+
+Loader
+  .load('t1/1.js', 't1/2.js')
+  .wait(function () {
+    console.log('1st part');
+  });
+
+Loader
+  .load('t1/3.js', 't1/4.js')
+  .wait(function () {
+    console.log('2nd part');
+  });
+</script>
