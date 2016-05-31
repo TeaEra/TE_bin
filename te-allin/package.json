@@ -1,0 +1,17 @@
+{
+  "name": "te-allin",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "antd": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0"
+  },
+  "author": "TeaEra"
+}
