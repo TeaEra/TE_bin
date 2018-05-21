@@ -1,0 +1,9 @@
+{
+  "name": "demo-01",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "./../node_modules/.bin/webpack-dev-server --open 'Google Chrome'",
+    "build": "./../node_modules/.bin/webpack"
+  },
+  "license": "MIT"
+}
